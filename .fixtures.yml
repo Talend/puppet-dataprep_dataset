@@ -1,0 +1,9 @@
+fixtures:
+  forge_modules:
+    stdlib:     "puppetlabs/stdlib"
+    java:       "puppetlabs/java"
+    shellvar:   "herculesteam/augeasproviders_shellvar"
+    auges_core: "herculesteam/augeasproviders_core"
+
+  symlinks:
+    dataprep_dataset: "#{source_dir}"
