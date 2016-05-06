@@ -22,18 +22,12 @@
 # === Examples
 #
 #  class { 'dataprep_dataset':
-#    version     => '1.2.0',
-#    config_hash => {
-#      
-#    },
-#    java_opts_hash = {
-#      
-#    }
+#    version     => '1.2.0'
 #  }
 #
 # === Authors
 #
-# Talend <support@talend.com>
+# Talend <sbaryakov@talend.com>
 #
 # === Copyright
 #

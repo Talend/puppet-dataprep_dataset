@@ -33,7 +33,7 @@ describe 'dataprep_dataset class' do
     end
     describe port(8080) do
       it 'port 8080 should be listenting',  :retry => 20, :retry_wait => 10 do
-         should be_listening 
+         should be_listening
       end
     end
 
