@@ -25,10 +25,10 @@ describe 'dataprep_dataset' do
 
     it { should contain_shellvar('APP_OPTS').with(
           {"value" => [
-             "--dataset.content.store.file.location=/opt/talend/dataprep/content",
-             "--dataset.metadata.store.file.location=/opt/talend/dataprep/metadata",
-             "--user.data.store.file.location=/opt/talend/dataprep/data",
-             "--folder.store.file.location=/opt/talend/dataprep/files"]})}
+             "--dataset.content.store.file.location=/opt/talend/dataprep/data/content",
+             "--dataset.metadata.store.file.location=/opt/talend/dataprep/data/metadata",
+             "--user.data.store.file.location=/opt/talend/dataprep/data/userdata",
+             "--folder.store.file.location=/opt/talend/dataprep/data/files"]})}
 
     it { should contain_shellvar('JAVA_OPTS').with({"value" => []} )}
 
