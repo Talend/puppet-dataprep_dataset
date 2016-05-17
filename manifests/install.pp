@@ -1,6 +1,6 @@
 class dataprep_dataset::install {
 
-  class {::java:
+  class {'::java':
     package => 'java-1.8.0-openjdk'
   } ->
 
