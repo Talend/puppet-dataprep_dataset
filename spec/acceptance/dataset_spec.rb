@@ -31,23 +31,26 @@ describe 'dataprep_dataset class' do
     describe service('dataprep-dataset') do
       it { should be_running }
     end
+
     describe port(8080) do
       it 'port 8080 should be listenting',  :retry => 20, :retry_wait => 10 do
          should be_listening
       end
     end
 
-    describe "Create dataset in proper location" do
+    describe 'content and metadata files', :retry => 2, :retry_wait => 20 do
 
       dataset_name = rand(36**5).to_s(36)
-      dataset_id = command("curl --silent -X POST http://127.0.0.1:8080/datasets/?name=#{dataset_name} -H \"Content-type: text/csv\" -d \"1,2,3\"").stdout
+      let(:dataset_id) { command("curl --silent -X POST http://127.0.0.1:8080/datasets/?name=#{dataset_name} -H \"Content-type: text/csv\" -d \"1,2,3\"").stdout }
 
-      describe file("/opt/talend/dataprep/data/content/#{dataset_id}") do
-        it {should be_writable.by_user('talend')}
+      it 'should have correct content file' do
+        expect {file("/opt/talend/dataprep/data/content/#{dataset_id}").to be_file }
+        expect {file("/opt/talend/dataprep/data/content/#{dataset_id}").to be_writable.by_user('talend') }
       end
 
-      describe file("/opt/talend/dataprep/data/metadata/#{dataset_id}") do
-        it {should be_writable.by_user('talend')}
+      it 'should have correct metadata file' do
+        expect {file("/opt/talend/dataprep/data/metadata/#{dataset_id}").to be_file }
+        expect {file("/opt/talend/dataprep/data/metadata/#{dataset_id}").to be_writable.by_user('talend') }
       end
 
     end
