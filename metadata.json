@@ -1,17 +1,17 @@
 {
   "name": "talend-dataprep_dataset",
   "version": "0.1.0",
-  "author": "Talend",
+  "author": "talend",
   "summary": "Installs and configures dataprep-dataset service role in Talend Integration Cloud deployments.",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "source": "https://github.com/Talend/puppet-dataprep_dataset",
   "project_page": "https://github.com/Talend/puppet-dataprep_dataset",
   "issues_url": "https://github.com/Talend/puppet-dataprep_dataset/issues",
   "dependencies": [
-    {"name":"puppetlabs-stdlib","version_requirement":">= 4.0.0"},
-    {"name":"puppetlabs-java","version_requirement":">= 1.5.0"},
-    {"name":"herculesteam-augeasproviders_core","version_requirement":">= 2.1.2"},
-    {"name":"herculesteam-augeasproviders_shellvar","version_requirement":">= 2.1.1"}
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0 < 5.0.0"},
+    {"name":"puppetlabs-java","version_requirement":"1.x"},
+    {"name":"herculesteam-augeasproviders_core","version_requirement":"2.x"},
+    {"name":"herculesteam-augeasproviders_shellvar","version_requirement":"2.x"}
   ]
 }
 

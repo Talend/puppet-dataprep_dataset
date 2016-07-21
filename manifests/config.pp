@@ -1,6 +1,5 @@
 class dataprep_dataset::config {
 
-
   if empty($dataprep_dataset::env_java_args) {
     $java_opts_ensure = absent
   } else {

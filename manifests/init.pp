@@ -33,13 +33,15 @@
 #
 # Copyright 2016 Talend SA
 #
-class dataprep_dataset(
+class dataprep_dataset (
+
   $version        = $dataprep_dataset::params::version,
   $java_args      = $dataprep_dataset::params::java_args,
   $app_args       = $dataprep_dataset::params::app_args,
   $yum_s3_enabled = $dataprep_dataset::params::yum_s3_enabled,
   $yum_s3_gpg     = $dataprep_dataset::params::yum_s3_gpg,
-  $yum_base_url   = $dataprep_dataset::params::yum_base_url
+  $yum_base_url   = $dataprep_dataset::params::yum_base_url,
+
 ) inherits dataprep_dataset::params {
 
   validate_hash($java_args)

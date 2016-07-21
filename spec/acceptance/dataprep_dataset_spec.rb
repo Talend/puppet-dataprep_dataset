@@ -1,18 +1,8 @@
-require 'spec_helper_acceptance'
+require 'spec_helper'
 
-describe 'dataprep_dataset class' do
+describe 'dataprep_dataset' do
 
   context 'default parameters' do
-    it 'should work with no errors' do
-      pp = <<-EOS
-      class { 'dataprep_dataset': }
-      EOS
-
-      # Run it twice and test for idempotency
-      apply_manifest(pp, :catch_failures => true)
-      expect(apply_manifest(pp, :catch_failures => true).exit_code).to be_zero
-    end
-
     describe package('dataprep-dataset') do
       it { should be_installed }
     end
@@ -32,10 +22,8 @@ describe 'dataprep_dataset class' do
       it { should be_running }
     end
 
-    describe port(8080) do
-      it 'port 8080 should be listenting',  :retry => 20, :retry_wait => 10 do
-         should be_listening
-      end
+    describe port(8080), :retry => 3, :retry_wait => 30 do
+      it { should be_listening }
     end
 
     describe 'content and metadata files', :retry => 2, :retry_wait => 20 do
