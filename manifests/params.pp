@@ -15,4 +15,7 @@ class dataprep_dataset::params {
     '--folder.store.file.location'           => "${installation_prefix}/files"
   }
 
+  $service_ensure = 'running'
+  $service_enable = true
+
 }
