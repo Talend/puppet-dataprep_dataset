@@ -50,11 +50,11 @@ class dataprep_dataset(
   $env_java_args = join_keys_to_values($java_args, '=')
   $env_app_args = join_keys_to_values($app_args, '=')
 
-#  class { 'dataprep_dataset::repos': } ->
+  class { 'dataprep_dataset::repos': } ->
   class { 'dataprep_dataset::install': } ->
   class { 'dataprep_dataset::config': } ~>
   class { 'dataprep_dataset::service': }
-#  contain 'dataprep_dataset::repos'
+  contain 'dataprep_dataset::repos'
   contain 'dataprep_dataset::install'
   contain 'dataprep_dataset::config'
   contain 'dataprep_dataset::service'
